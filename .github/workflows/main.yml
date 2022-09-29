@@ -1,15 +1,11 @@
 name: CI
-on: [push, workflow_dispatch]
+on: [push, workflow_dispatch,pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: npm install and build
-        run: |
-          npm ci
-          npm run build
       - name: Find Pull Request
         uses: ./
         id: find-pull-request
